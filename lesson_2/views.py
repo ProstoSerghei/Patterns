@@ -8,4 +8,4 @@ class Index:
 
 class About:
     def __call__(self, request):
-        return '200 OK', 'about'
+        return '200 OK', render('about.html', date=request.get('get', None))
