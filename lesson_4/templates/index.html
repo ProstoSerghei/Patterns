@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Список категорий
+{% endblock title %}
+
+{% block content %}
+<div>
+    <a class="btn btn-link" href="/create-category/">Создать новую категорию</a>
+</div>
+<div>
+    <h2>Список существующих категорий</h2>
+    {% if objects_list %}
+        <table class="table text-center align-middle w-75 mx-auto mt-3">
+            <thead>
+                <tr>
+                    <th>Название категории</th>
+                    <th>Количество курсов</th>
+                    <th>Ссылка на курсы</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in objects_list %}
+                    <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.course_count()}}</td>
+                        <td><a class="btn btn-link" href="/courses-list/?id={{item.id}}">Показать курсы</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        Пока нет категорий
+    {% endif %}
+</div>
+{% endblock content %}
