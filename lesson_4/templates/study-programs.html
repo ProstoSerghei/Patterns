@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}
+	Обучение программированию
+{% endblock %}
+{% block content %}
+<div class="content">
+    <h1>Программы обучения</h1>
+    <p>Курсы в течение года.</p>
+    <p>Расписание действует на: {{date}}</p>
+    <table class="table table-bordered mb-5 table-hover">
+        <tr class="head">
+            <th></th>
+            <th>Москва</th>
+            <th>Санкт-Петербург</th>
+            <th>Екатеринбург</th>
+        </tr>
+        <tr>
+            <th>Как открыть кофейню</th>
+            <td>Сб, 20 февраля 2024<br/>11:00 - 14:00</td>
+            <td>Сб, 6 марта 2024<br/>11:00 - 14:00</td>
+            <td>Сб, 20 марта 2024<br/>11:00 - 14:00</td>
+        </tr>
+        <tr class="even">
+            <th>Курс Латте Арт Базовый</th>
+            <td>Сб, 10 апреля 2024<br/>11:00 - 13:00</td>
+            <td>Сб, 1 мая 2024<br/>11:00 - 13:00</td>
+            <td>Сб, 8 мая 2024<br/>11:00 - 13:00</td>
+        </tr>
+        <tr>
+            <th>Курс «Бариста Профессионал»</th>
+            <td>Сб, 26 июня 2024<br/>11:00 - 14:00</td>
+            <td>Сб, 3 июля 2024<br/>11:00 - 14:00</td>
+            <td>Сб, 10 июля 2024<br/>11:00 - 14:00</td>
+        </tr>
+        <tr class="even">
+            <th>Курс «Шеф-бариста»</th>
+            <td>Сб, 28 августа 2024<br/>11:00 - 16:00</td>
+            <td>Сб, 4 сентября 2024<br/>11:00 - 16:00</td>
+            <td>Сб, 11 сентября 2024<br/>11:00 - 16:00</td>
+        </tr>
+    </table>
+    <hr />
+    <form action="" method="post" class="col-4 mx-auto">
+        <fieldset>
+            <legend>Зарегистрируйтесь</legend>
+            <div class="mb-3">
+                <label class="form-label" for="name">Ваше имя:</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="email">Ваш email:</label>
+                <input class="form-control" type="text" name="email" id="email">
+            </div>
+            <div class="mb-3"><label for="location" class="form-label">Ближайший центр:</label>
+                <select class="form-select" name="location" id="location">
+                    <option value="msk">Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                    <option value="ekb">Екатеринбург</option>
+                </select></div>
+            <span class="title">Являетесь участником?</span>
+            <label><input type="radio" name="member" value="yes"/> Да</label>
+            <label><input type="radio" name="member" value="no"/> Нет</label></p>
+        </fieldset>
+        <button class="btn btn-secondary" type="submit">Регистрация</button>
+    </form>
+</div>
+{% endblock %}
