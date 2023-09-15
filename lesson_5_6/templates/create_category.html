@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Создание категории
+{% endblock title %}
+
+{% block content %}
+<h2>Создание категории</h2>
+<form method="post">
+    <div class="my-3 col-3">
+        <label for="name" class="form-label">Название</label>
+        <input class="form-control" type="text" id="name" name="name" placeholder="Название">
+    </div>
+    <button class="btn btn-secondary" type="submit">Сохранить и вернуться на главную</button>
+</form>
+{% endblock content %}

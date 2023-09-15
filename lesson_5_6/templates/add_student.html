@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Добавить студента
+{% endblock title %}
+
+{% block content %}
+<h2>Добавление студента на курс</h2>
+<form method="post" class="my-3">
+    <div class="mb-3 d-flex flex-nowrap">
+        <div class="w-25">
+            <label for="">Курсы</label>
+            <select class="form-select" multiple name="course_name">
+            {%for obj in courses %}
+                <option value="{{obj.name}}">{{obj.name}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="mx-3 align-self-center">
+            <i class="bi bi-arrow-left-right"></i>
+        </div>
+        <div class="w-25">
+            <label for="">Студенты</label>
+            <select class="form-select" multiple name="student_name">
+            {%for obj in students %}
+                <option value="{{obj.name}}">{{obj.name}}</option>
+            {% endfor %}
+            </select>
+        </div>
+    </div>
+    <button class="btn btn-secondary" type="submit">Сохранить</button>
+</form>
+{% endblock content %}

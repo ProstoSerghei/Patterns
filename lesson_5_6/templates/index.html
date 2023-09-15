@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Список категорий
+{% endblock title %}
+
+{% block content %}
+<div>
+<ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="/create-category/">Создать новую категорию</a>
+        </li>
+    </ul>
+</div>
+<div>
+    <h2>Список существующих категорий</h2>
+    {% if objects_list %}
+        <table class="table text-center align-middle w-75 mx-auto mt-3">
+            <thead>
+                <tr>
+                    <th>Название категории</th>
+                    <th>Количество курсов</th>
+                    <th>Ссылка на курсы</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in objects_list %}
+                    <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.course_count()}}</td>
+                        <td><a class="btn btn-link" href="/courses-list/?id={{item.id}}">Показать курсы</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        Пока нет категорий
+    {% endif %}
+
+    <hr/>
+    <h2>Студенты</h2>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="/student-list/">Список студентов</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/create-student/">Добавить студента</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/add-student/">Записать студента на курс</a>
+        </li>
+    </ul>
+</div>
+{% endblock content %}
