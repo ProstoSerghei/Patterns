@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Список курсов
+{% endblock title %}
+
+{% block content %}
+    <div class="mb-5">
+        <a href="/" class="btn btn-outline-secondary rounded-circle fs-2 p-2"><i class="bi bi-arrow-left m-0 p-0"></i></a>
+    </div>
+
+    <div>
+        <a class="btn btn-link" href="/create-course/?id={{id}}"><i class="bi bi-plus fs-5"></i> Создать новый курс</a>
+        <h2>Список курсов для категории "{{name}}"</h2>
+        {% if objects_list %}
+            <table class="table text-center align-middle w-50 mt-5">
+                <tbody>
+                    {% for item in objects_list %}
+                        <tr>
+                            <td>{{item.name}}</td>
+                            <td>
+                                <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    Список участников
+                                </button>
+                                <ul class="dropdown-menu">
+                                {%for el in item.students %}
+                                    <li class=""><span class="dropdown-item-text"><i class="bi bi-check"></i> {{el.name}}</span></li>
+                                {% endfor %}
+                                </ul>
+                                </div>
+                            </td>
+                            <td><a class="btn btn-link" href="/copy-course/?name={{item.name}}">скопировать</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            Пока нет курсов
+        {% endif %}
+    </div>
+{% endblock content %}
